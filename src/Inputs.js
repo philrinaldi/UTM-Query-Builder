@@ -137,7 +137,7 @@ export default function Inputs () {
 			<span className="output">{fullUrl}</span>
 
 			<button class="btn-green" onClick={() =>  navigator.clipboard.writeText('copy this text')}>
-			Copyx
+			Copy
 			</button>
 		</div>
 	)
