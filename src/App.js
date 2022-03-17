@@ -6,6 +6,7 @@ function App() {
   return (
       <div id="body" className="container">
         <h1>UTM Query String Builder</h1>
+        <h2>Now published on Git & Bitbucket</h2>
         <p className="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
