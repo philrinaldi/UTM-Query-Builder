@@ -134,9 +134,12 @@ export default function Inputs () {
 			    </fieldset>
 		    </form>
 
-			<span className="output">{fullUrl}</span>
+		    <label>Your URL:</label>
+		    <div className="output-box">
+				<span className="output">{fullUrl}</span>
+			</div>
 
-			<button class="btn-green" onClick={() =>  navigator.clipboard.writeText('copy this text')}>
+			<button className="btn" onClick={() =>  navigator.clipboard.writeText('copy this text')}>
 			Copy
 			</button>
 		</div>
