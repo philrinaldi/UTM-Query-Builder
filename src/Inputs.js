@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Inputs () {
@@ -9,22 +11,6 @@ export default function Inputs () {
   	const [inputs, setInputs] = useState({});
 
   	const handleChange = e => setInputs(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
-
-	// const handleSubmit = e => {
-	// 	ReactDOM.render(
-	//   <Build 
-	//   	url={inputs.url}
-	//   	source={inputs.source}
-	//   	medium={inputs.medium} 
-	//   	campaign={inputs.campaign} 
-	//   	content={inputs.content} 
-	//   	term={inputs.term} 
-	//   	/>,
-	//   document.getElementById('output')
-	//   );
-
-	//   e.preventDefault();
-	// }
 
 	const clearForm = () => {
 		setInputs({});
@@ -75,11 +61,16 @@ export default function Inputs () {
 		return output;
 	}
 
-
-
 	const fullUrl = concat();
 
-	//console.log(watch());
+	const copyOutput = () => {
+		const url = JSON.stringify(fullUrl);
+		const unquotUrl = url.replace(/['"]+/g, '');
+		navigator.clipboard.writeText(unquotUrl);
+
+		alert("URL Copied to Clipboard");
+
+	}
 
 	return (
 		<div>
@@ -139,19 +130,16 @@ export default function Inputs () {
 			            placeholder="Enter Your Term..." />
 			    </fieldset>
 			    <fieldset>
-		        	<label>Your URL</label>
+		        	<label>Your URL</label> 
 				 	<input
 					 	{...register("output")}
 			            type="text"
 			            className="output"
 			            value={fullUrl}
 			         />
+			         <FontAwesomeIcon icon={faClipboard} size="2x" onClick={copyOutput} />
 			    </fieldset>
 		    </form>
-
-			<button className="btn" onClick={() =>  navigator.clipboard.writeText('copy this text')}>
-			Copy
-			</button>
 			<button className="btn" onClick={clearForm}>
 			Clear All
 			</button>
