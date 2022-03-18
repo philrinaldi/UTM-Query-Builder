@@ -26,6 +26,10 @@ export default function Inputs () {
 	//   e.preventDefault();
 	// }
 
+	const clearForm = () => {
+		setInputs({});
+	}
+
 	const concat = () => {
 		let output = '';
 		for (const query in inputs) {
@@ -70,6 +74,8 @@ export default function Inputs () {
 
 		return output;
 	}
+
+
 
 	const fullUrl = concat();
 
@@ -132,15 +138,22 @@ export default function Inputs () {
 			            onChange={handleChange}
 			            placeholder="Enter Your Term..." />
 			    </fieldset>
+			    <fieldset>
+		        	<label>Your URL</label>
+				 	<input
+					 	{...register("output")}
+			            type="text"
+			            className="output"
+			            value={fullUrl}
+			         />
+			    </fieldset>
 		    </form>
-
-		    <label>Your URL:</label>
-		    <div className="output-box">
-				<span className="output">{fullUrl}</span>
-			</div>
 
 			<button className="btn" onClick={() =>  navigator.clipboard.writeText('copy this text')}>
 			Copy
+			</button>
+			<button className="btn" onClick={clearForm}>
+			Clear All
 			</button>
 		</div>
 	)

@@ -32,23 +32,6 @@ p {
   margin: 0px;
 }
 
-.output-box {
-  max-width: 50ch;
-  background-color: #0d74ad;
-  border: solid 1px #FFF;
-  border-radius: 5px;
-  height: 40px;
-}
-
-.output {
-  font-size: 16px;
-  font-weight: 400;
-  margin: 10px 0px;
-  overflow: hidden;
-  max-width: 100%;
-  display: inline-block;
-}
-
 .intro {
   
 }
@@ -61,13 +44,18 @@ p {
 
 #inputs input[type="text"] {
   height: 40px;
-  padding: 0px 5px;
+  padding: 0px 10px;
   width: 95%;
   max-width: 50ch;
   border: solid thin black;
   border-radius: 3px;
   margin: 3px 0px;
   display: block;
+}
+
+.output {
+  font-weight: 400;
+  background-color: #e0e0e0;
 }
 
 #inputs input[type="text"]:placeholder {
